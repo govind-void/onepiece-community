@@ -3,246 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRAND LINE // NEO-EGGHEAD</title>
+    <title>THE MULTI-HUB // FAN TERMINAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2=family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background-color: #0a0a12;
-            overflow-x: hidden;
-        }
-        .futuristic-title {
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
-        }
-        .neon-border {
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-            border: 1px solid rgba(0, 242, 254, 0.5);
-        }
-        .neon-glow-red {
-            box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
-            border: 1px solid rgba(255, 0, 128, 0.8);
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a12;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #00f2fe;
-            border-radius: 3px;
-        }
+        body { font-family: 'Rajdhani', sans-serif; background-color: #05050b; }
+        .mono-code { font-family: 'Share Tech Mono', monospace; }
+        .font-cyber { font-family: 'Orbitron', sans-serif; }
+        .neon-glow-cyan { box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); border: 1px solid rgba(6, 182, 212, 0.6); }
     </style>
 </head>
-<body class="text-gray-100 min-h-screen relative">
+<body class="text-slate-200 min-h-screen pb-12">
 
-    <canvas id="particleCanvas" class="absolute top-0 left-0 w-full h-full -z-10 opacity-40"></canvas>
-
-    <header class="w-full py-6 px-8 flex justify-between items-center border-b border-cyan-500/20 backdrop-blur-md sticky top-0 z-50">
+    <header class="w-full border-b border-cyan-500/20 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
         <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-cyan-400 rounded-bl-xl animate-pulse"></div>
-            <span class="futuristic-title text-xl font-black tracking-widest text-cyan-400">NEO•OP</span>
+            <span class="w-3 h-3 rounded-full bg-cyan-400 animate-ping"></span>
+            <span class="font-cyber text-lg font-black tracking-widest text-cyan-400">OMNI_HUB.NET</span>
         </div>
-        <nav class="hidden md:flex space-x-8 text-sm uppercase tracking-wider font-bold">
-            <a href="#logpose" class="text-cyan-400 hover:text-white transition">Log Pose</a>
-            <a href="#crew" class="hover:text-cyan-400 transition">Database</a>
-            <a href="#bounty" class="hover:text-cyan-400 transition">Bounty Net</a>
-        </nav>
-        <button onclick="engageGear5()" class="neon-border px-5 py-2 text-xs uppercase tracking-widest font-bold bg-transparent text-cyan-400 hover:bg-cyan-400 hover:text-black transition duration-300">
-            Engage Gear 5
-        </button>
+        
+        <div class="flex items-center space-x-4 font-mono text-xs tracking-wider">
+            <a href="https://youtube.com/@animestrea_m?si=oaF-Yv2ULc5nnd2P" target="_blank" class="px-3 py-1.5 bg-red-950/40 border border-red-500/40 rounded text-red-400 hover:bg-red-500 hover:text-black transition duration-200">
+                ▶ YOUTUBE
+            </a>
+            <a href="https://www.instagram.com/nidhogg__00?igsh=MTJyb244Yzd6bTQ4OQ==" target="_blank" class="px-3 py-1.5 bg-fuchsia-950/40 border border-fuchsia-500/40 rounded text-fuchsia-400 hover:bg-fuchsia-500 hover:text-black transition duration-200">
+                📸 INSTAGRAM
+            </a>
+            <a href="https://t.me/+ZVFyku-YvHJiZGM1" target="_blank" class="px-3 py-1.5 bg-sky-950/40 border border-sky-500/40 rounded text-sky-400 hover:bg-sky-500 hover:text-black transition duration-200">
+                ✈ TELEGRAM
+            </a>
+        </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <main class="max-w-6xl mx-auto px-4 mt-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
         
-        <div class="space-y-6">
-            <div class="inline-block px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs uppercase tracking-widest rounded">
-                System Status: Searching for Laugh Tale...
-            </div>
-            <h1 class="futuristic-title text-5xl md:text-7xl font-black text-white leading-none">
-                THE PIRATE <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500">KINGDOM</span>
-            </h1>
-            <p class="text-gray-400 text-lg max-w-lg">
-                Welcome to the next generation of the Grand Line navigation interface. Access holographic pirate bounties, monitor Haki output frequencies, and chart coordinates through real-time Quantum Log Poses.
-            </p>
-            
-            <div class="grid grid-cols-3 gap-4 pt-4">
-                <div class="p-4 bg-white/5 border border-white/10 rounded">
-                    <div class="text-xs text-gray-500 uppercase">Haki Level</div>
-                    <div class="text-xl font-bold text-cyan-400" id="hakiStat">94.2%</div>
-                </div>
-                <div class="p-4 bg-white/5 border border-white/10 rounded">
-                    <div class="text-xs text-gray-500 uppercase">Threat Level</div>
-                    <div class="text-xl font-bold text-rose-500">SS+</div>
-                </div>
-                <div class="p-4 bg-white/5 border border-white/10 rounded">
-                    <div class="text-xs text-gray-500 uppercase">Current Era</div>
-                    <div class="text-xl font-bold text-fuchsia-400">NEO-EGGHEAD</div>
+        <section class="lg:col-span-1 space-y-4">
+            <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-lg space-y-3">
+                <h3 class="font-cyber text-xs uppercase tracking-wider text-slate-400">// CHANNELS</h3>
+                <div class="space-y-1 text-xs uppercase font-bold tracking-wider">
+                    <button onclick="filterCategory('all')" class="w-full text-left px-3 py-2.5 rounded bg-cyan-950/40 text-cyan-400 border border-cyan-500/20 block">
+                        🌐 ALL FEEDS
+                    </button>
+                    <button onclick="filterCategory('anime')" class="w-full text-left px-3 py-2.5 rounded text-slate-400 hover:bg-slate-900/60 hover:text-white block transition">
+                        💥 ANIME ZONE
+                    </button>
+                    <button onclick="filterCategory('football')" class="w-full text-left px-3 py-2.5 rounded text-slate-400 hover:bg-slate-900/60 hover:text-white block transition">
+                        ⚽ FOOTBALL HUB
+                    </button>
+                    <button onclick="filterCategory('cricket')" class="w-full text-left px-3 py-2.5 rounded text-slate-400 hover:bg-slate-900/60 hover:text-white block transition">
+                        🏏 CRICKET STADIUM
+                    </button>
+                    <button onclick="filterCategory('everything')" class="w-full text-left px-3 py-2.5 rounded text-slate-400 hover:bg-slate-900/60 hover:text-white block transition">
+                        💬 GENERAL CHIT-CHAT
+                    </button>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="flex justify-center relative">
-            <div class="absolute w-72 h-72 border border-cyan-500/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
-            <div class="absolute w-80 h-80 border border-dashed border-fuchsia-500/20 rounded-full animate-[spin_20s_linear_infinite]"></div>
+        <section class="lg:col-span-3 space-y-6">
             
-            <div id="hologramCard" class="neon-border w-80 bg-slate-900/80 backdrop-blur-md rounded-xl p-6 relative overflow-hidden transition-all duration-500 transform hover:scale-105">
-                <div class="absolute top-2 right-3 text-[10px] font-mono text-cyan-400/50">SYS_ID: 056-LUFFY</div>
-                
-                <div class="w-full h-64 bg-gradient-to-b from-cyan-950 to-slate-900 rounded-lg flex flex-col items-center justify-center relative border border-cyan-500/20 overflow-hidden">
-                    <div class="absolute w-full h-0.5 bg-cyan-400 top-0 opacity-70 animate-[bounce_3s_infinite]"></div>
-                    
-                    <span id="charAvatar" class="text-6xl filter drop-shadow-[0_0_15px_rgba(6,182,212,0.6)]">🍖</span>
-                    <span id="charTitle" class="mt-4 text-xs tracking-widest text-cyan-400 uppercase font-mono">Captain / Straw Hat</span>
-                </div>
-
-                <div class="mt-6 space-y-3">
-                    <div class="flex justify-between items-center">
-                        <h3 id="charName" class="futuristic-title text-2xl font-bold text-white tracking-wide">M. D. LUFFY</h3>
-                        <span id="charStatus" class="px-2 py-0.5 bg-emerald-500/20 border border-emerald-500 text-emerald-400 text-[10px] uppercase rounded">ALIVE</span>
-                    </div>
-                    <div class="border-t border-white/10 pt-3 flex justify-between text-sm">
-                        <span class="text-gray-500">BOUNTY:</span>
-                        <span id="charBounty" class="font-mono text-fuchsia-400 font-bold tracking-wider">3,000,000,000 ฿</span>
+            <div class="neon-glow-cyan bg-slate-950 p-6 rounded-xl space-y-4">
+                <div class="flex justify-between items-center border-b border-cyan-500/20 pb-3">
+                    <div>
+                        <h1 class="font-cyber text-xl font-black text-white tracking-wide">GLOBAL FAN TRANSMITTER</h1>
+                        <p class="text-xs text-slate-400 font-mono mt-0.5">Select a category matrix and broadcast your thoughts across the networks.</p>
                     </div>
                 </div>
+
+                <form id="globalHubForm" class="space-y-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" id="authorInput" required placeholder="Your Fan Alias..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm focus:outline-none focus:border-cyan-400 font-mono text-cyan-300">
+                        <select id="categoryInput" class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm focus:outline-none focus:border-cyan-400 text-slate-300">
+                            <option value="anime">Anime Zone</option>
+                            <option value="football">Football Hub</option>
+                            <option value="cricket">Cricket Stadium</option>
+                            <option value="everything">General Chit-Chat</option>
+                        </select>
+                    </div>
+                    <textarea id="contentInput" required rows="3" placeholder="Share links, match thoughts, anime discussions, or general opinions..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm focus:outline-none focus:border-cyan-400 text-slate-200"></textarea>
+                    <button type="submit" class="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-cyber text-xs font-bold uppercase tracking-widest rounded transition">
+                        Transmit Declaration
+                    </button>
+                </form>
             </div>
-        </div>
+
+            <div id="discussionFeed" class="space-y-4">
+                <p class="text-center text-slate-500 font-mono text-xs animate-pulse">Syncing real-time feed server matrix...</p>
+            </div>
+        </section>
     </main>
 
-    <section id="crew" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/5">
-        <h2 class="text-center futuristic-title text-sm tracking-[0.3em] uppercase text-cyan-400 mb-8">Access Crew Database Matrix</h2>
-        <div class="flex flex-wrap justify-center gap-4">
-            <button onclick="updateHologram('luffy')" class="px-6 py-2 bg-white/5 border border-white/10 hover:border-cyan-400 text-sm tracking-wider uppercase transition">Luffy</button>
-            <button onclick="updateHologram('zoro')" class="px-6 py-2 bg-white/5 border border-white/10 hover:border-cyan-400 text-sm tracking-wider uppercase transition">Zoro</button>
-            <button onclick="updateHologram('nami')" class="px-6 py-2 bg-white/5 border border-white/10 hover:border-cyan-400 text-sm tracking-wider uppercase transition">Nami</button>
-            <button onclick="updateHologram('sanji')" class="px-6 py-2 bg-white/5 border border-white/10 hover:border-cyan-400 text-sm tracking-wider uppercase transition">Sanji</button>
-        </div>
-    </section>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    <footer class="w-full text-center py-6 text-xs text-gray-600 font-mono border-t border-white/5">
-        // PROTOCOL TOEI_EG_2026 // ALL RIGHTS RESERVED TO EIICHIRO ODA
-    </footer>
-
-    <script>
-        // --- 1. Database Object for dynamic switching ---
-        const crewDatabase = {
-            luffy: {
-                name: "M. D. LUFFY",
-                title: "Captain / Straw Hat",
-                avatar: "🍖",
-                bounty: "3,000,000,000 ฿",
-                haki: "94.2%",
-                status: "ALIVE",
-                color: "cyan"
-            },
-            zoro: {
-                name: "RORONOA ZORO",
-                title: "Combatant / Pirate Hunter",
-                avatar: "⚔️",
-                bounty: "1,111,000,000 ฿",
-                haki: "89.5%",
-                status: "ALIVE",
-                color: "emerald"
-            },
-            nami: {
-                name: "NAMI",
-                title: "Navigator / Cat Burglar",
-                avatar: "🍊",
-                bounty: "366,000,000 ฿",
-                haki: "12.1%",
-                status: "ALIVE",
-                color: "orange"
-            },
-            sanji: {
-                name: "VINSMOKE SANJI",
-                title: "Cook / Black Leg",
-                avatar: "🚬",
-                bounty: "1,032,000,000 ฿",
-                haki: "81.4%",
-                status: "ALIVE",
-                color: "rose"
-            }
+        // ⚠️ PASTE YOUR SECURE FIREBASE CONFIG CONFIGURATION MATRIX HERE BELOW:
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_ID",
+            appId: "YOUR_APP_ID"
         };
 
-        function updateHologram(characterKey) {
-            const data = crewDatabase[characterKey];
-            
-            // Apply Fade Out / Glitch effect transition briefly
-            const card = document.getElementById('hologramCard');
-            card.style.opacity = 0.3;
-            card.style.transform = "scale(0.95) rotateY(15deg)";
-            
-            setTimeout(() => {
-                // Update Text Content
-                document.getElementById('charName').innerText = data.name;
-                document.getElementById('charTitle').innerText = data.title;
-                document.getElementById('charAvatar').innerText = data.avatar;
-                document.getElementById('charBounty').innerText = data.bounty;
-                document.getElementById('hakiStat').innerText = data.haki;
-                
-                // Restore & Glow transition
-                card.style.opacity = 1;
-                card.style.transform = "scale(1) rotateY(0deg)";
-            }, 250);
-        }
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const postsCollection = collection(db, "global_threads");
 
-        // --- 2. Emergency Easter Egg Button (Gear 5 Mode) ---
-        function engageGear5() {
-            const card = document.getElementById('hologramCard');
-            card.classList.toggle('neon-glow-red');
-            
-            // Rapid randomized visual telemetry simulation
-            let alertPhrases = ["DRUMS OF LIBERATION DETECTED", "JOY BOY PROTOCOL ONLINE", "OVERRIDING WORLD GOVERNMENT"];
-            alert(alertPhrases[Math.floor(Math.random() * alertPhrases.length)]);
-            
-            document.getElementById('hakiStat').innerText = "100.0% [MAX]";
-        }
+        const categoryLabels = { 
+            anime: "💥 Anime Zone", 
+            football: "⚽ Football Hub", 
+            cricket: "🏏 Cricket Stadium", 
+            everything: "💬 General Chit-Chat" 
+        };
 
-        // --- 3. Matrix Particle Background Effect Canvas ---
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
+        let currentFilter = 'all';
+        let cachedDocs = [];
 
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
+        // LIVE LISTEN WORKFLOW
+        const q = query(postsCollection, orderBy("timestamp", "desc"));
+        onSnapshot(q, (snapshot) => {
+            cachedDocs = [];
+            snapshot.forEach(doc => cachedDocs.push(doc.data()));
+            renderFeed();
         });
 
-        const particles = [];
-        for (let i = 0; i < 60; i++) {
-            particles.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                radius: Math.random() * 2 + 0.5,
-                speedX: (Math.random() - 0.5) * 0.5,
-                speedY: (Math.random() - 0.5) * 0.5
-            });
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = 'rgba(6, 182, 212, 0.7)'; // Cyan matrix color
+        // DOM RENDER LOGIC
+        window.renderFeed = function() {
+            const feedContainer = document.getElementById('discussionFeed');
+            feedContainer.innerHTML = '';
             
-            particles.forEach(p => {
-                p.x += p.speedX;
-                p.y += p.speedY;
+            const filtered = currentFilter === 'all' 
+                ? cachedDocs 
+                : cachedDocs.filter(p => p.category === currentFilter);
 
-                if (p.x < 0 || p.x > width) p.speedX *= -1;
-                if (p.y < 0 || p.y > height) p.speedY *= -1;
+            if(filtered.length === 0) {
+                feedContainer.innerHTML = `<p class="text-center text-slate-600 text-xs font-mono py-8">// Channel empty. Be the first to drop an update.</p>`;
+                return;
+            }
 
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fill();
+            filtered.forEach((post) => {
+                const element = document.createElement('div');
+                element.className = "p-5 bg-slate-950/80 border border-slate-800 rounded-lg relative overflow-hidden";
+                element.innerHTML = `
+                    <div class="absolute top-0 left-0 w-1 h-full bg-cyan-400"></div>
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="font-mono text-sm text-emerald-400 font-bold">${post.author || 'Anonymous'}</span>
+                            <span class="text-[10px] uppercase bg-slate-900 border border-slate-800 px-2 py-0.5 rounded text-slate-300 font-bold">${categoryLabels[post.category] || 'General'}</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 whitespace-pre-wrap">${post.content}</p>
+                `;
+                feedContainer.appendChild(element);
             });
-            requestAnimationFrame(animateParticles);
         }
-        animateParticles();
+
+        // FILTER TACTIC CLICK HANDLING
+        window.filterCategory = function(category) {
+            currentFilter = category;
+            renderFeed();
+        }
+
+        // FORM SUBMISSION PIPELINE
+        document.getElementById('globalHubForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const author = document.getElementById('authorInput').value;
+            const category = document.getElementById('categoryInput').value;
+            const content = document.getElementById('contentInput').value;
+
+            try {
+                await addDoc(postsCollection, {
+                    author: author,
+                    category: category,
+                    content: content,
+                    timestamp: Date.now()
+                });
+                document.getElementById('contentInput').value = '';
+            } catch (error) {
+                console.error("Database Transmission Error: ", error);
+            }
+        });
     </script>
 </body>
 </html>
